@@ -41,7 +41,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::loginView(function () {
-            return view('auth.login');
+            return view('frontend.home.login');
         });
 
         Fortify::registerView(function () {
@@ -49,7 +49,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.passwords.email');
+            return view('frontend.home.email');
         });
         
         Fortify::resetPasswordView(function ($request) {

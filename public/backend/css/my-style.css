@@ -1,0 +1,18 @@
+.sidebar-brand-text{
+    font-size: 12px;
+    
+}
+
+.bg-login-image {
+    background: url('img/warehouse.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-password-image {
+    background: url('img/password-forget.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+
