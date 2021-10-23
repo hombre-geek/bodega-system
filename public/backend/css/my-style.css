@@ -16,3 +16,14 @@
 }
 
 
+label.requerido:after{
+    content: " *";
+    color: #e73d4a
+}
+
+
+.close-btn-size{
+    font-size: 11px !important;
+}
+
+

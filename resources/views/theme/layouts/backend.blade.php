@@ -27,6 +27,9 @@
                 @include('theme.layouts._partials.topBar')
 
                 <div class="container-fluid">
+                    
+                    @include('theme.layouts.messages.alerts')
+
                     @include('theme.layouts._partials.pageHeading')
 
                     @yield('content')
