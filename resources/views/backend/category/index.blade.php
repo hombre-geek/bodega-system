@@ -7,7 +7,7 @@
 @section('sectionTitle','Listado de Categorias')
 @section('btnHeading')
     <a href="{{ route('categories.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-user-plus fa-sm text-white-50"></i>
+         <i class="fas fa-folder-plus fa-sm text-white-50"></i>
          <span class="ml-1">Nueva Categoria</span>        
     </a>    
     

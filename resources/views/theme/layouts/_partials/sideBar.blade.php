@@ -29,12 +29,13 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" 
+                href="#" data-toggle="collapse" data-target="#users"
+            aria-expanded="false" aria-controls="collapseTwo">
             <i class="fas fa-users"></i>
             <span>{{ __('Users') }}</span>
         </a>
-        <div id="collapseTwo" class="collapse {{ Request::routeIs('users.index') || Request::routeIs('users.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="users" class="collapse {{ Request::routeIs('users.index') || Request::routeIs('users.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">{{ __('Manage:') }}</h6>
                 <a  class="collapse-item {{ Request::routeIs('users.index') ? 'active' : '' }}"
@@ -45,12 +46,13 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link {{ Request::routeIs('categories.index') || Request::routeIs('categories.create')  ? 'collapsed' : '' }}" 
+            href="#" data-toggle="collapse" data-target="#categories"
+            aria-expanded="{{ Request::routeIs('categories.index') || Request::routeIs('categories.create')  ? 'true' : 'false' }}" aria-controls="collapseTwo">
             <i class="fas fa-folder-open"></i>
             <span>{{ __('Categories') }}</span>
         </a>
-        <div id="collapseTwo" class="collapse {{ Request::routeIs('categories.index') || Request::routeIs('categories.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="categories" class="collapse {{ Request::routeIs('categories.index') || Request::routeIs('categories.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">{{ __('Manage:') }}</h6>
                 <a  class="collapse-item {{ Request::routeIs('categories.index') ? 'active' : '' }}"
