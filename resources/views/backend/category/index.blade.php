@@ -3,12 +3,12 @@
 {{-- <link href="http://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
 <link href="{{ asset('backend/css/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
 @endpush
-@section('titlePage','Listado de Usuarios')
-@section('sectionTitle','Listado de Usuarios')
+@section('titlePage','Listado de Categorias')
+@section('sectionTitle','Listado de Categorias')
 @section('btnHeading')
-    <a href="{{ route('users.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+    <a href="{{ route('categories.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
         <i class="fas fa-user-plus fa-sm text-white-50"></i>
-         <span class="ml-1">Nuevo Usuario</span>        
+         <span class="ml-1">Nueva Categoria</span>        
     </a>    
     
 @endsection
@@ -26,10 +26,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>DNI</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Correo Electrónico</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
                         <th>Fecha de Creación</th>
                         <th>Acciones</th>
                         
@@ -37,33 +35,30 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>DNI</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Correo Electrónico</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
                         <th>Fecha de Creación</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ( $users as $user )
+                    @foreach ( $categories as $category )
                         <tr>
-                            <td>{{ $user->dni }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->last_name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->created_at }}</td>                            
+                            
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->description }}</td>                            
+                            <td>{{ $category->created_at }}</td>                            
                             <td>
                                
-                                <a href="{{ route('users.edit', $user) }}" class="btn  text-success" data-toggle="tooltip" data-placement="top" title="{{ __('Edit') }}">
-                                    <i class="fas fa-user-edit"></i>
+                                <a href="{{ route('categories.edit', $category) }}" class="btn  text-success" data-toggle="tooltip" data-placement="top" title="{{ __('Edit') }}">
+                                    <i class="fas fa-edit"></i>
                                 </a>
                                
-                                <form action="{{ route('users.destroy', $user)}}" method="post" style="display:inline;">
+                                <form action="{{ route('categories.destroy', $category)}}" method="post" style="display:inline;">
                                     @method('DELETE')
                                     @csrf
                                     <button data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ __('Delete') }}"
-                                            class="btn text-danger"><i class="fas fa-user-times"></i>
+                                            class="btn text-danger"><i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
 

@@ -38,13 +38,6 @@ class UserController extends Controller
             'msg' => 'En la Creación del Nuevo Usuario',
         ]);
     }
-
-   
-    public function show($id)
-    {
-        //
-    }
-
    
     public function edit(User $user)
     {
