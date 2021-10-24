@@ -1,16 +1,13 @@
-@if ($user->exists)
-    <form method="POST"  action="{{ route('users.update', $user) }}" >
-        @method('PUT')
-@else
-    <form method="POST" action="{{ route('users.store') }}" >
-@endif
-
-@csrf
 
 <div class="card w-75 mx-auto mt-5">
     <div class="card-body">
 
-      <form action="{{ route('users.store') }}" method="POST">
+        @if ($user->exists)
+            <form method="POST"  action="{{ route('users.update', $user) }}" >
+            @method('PUT')
+        @else
+            <form method="POST" action="{{ route('users.store') }}" >
+        @endif
           @csrf
 
             <div class="row mb-4">

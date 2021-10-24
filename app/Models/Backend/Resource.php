@@ -6,21 +6,19 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+class Resource extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-
-    //  Relation Many to Many (Categories - Resources)
-    public function resources()
+    // Relation many to many inverse (Recourses - Categories)
+    public function category()
     {
-        return $this->hasMany(Resource::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
     }
-
 }

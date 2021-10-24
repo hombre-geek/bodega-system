@@ -63,6 +63,24 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('resources.index') || Request::routeIs('resources.create')  ? 'collapsed' : '' }}" 
+            href="#" data-toggle="collapse" data-target="#resources"
+            aria-expanded="{{ Request::routeIs('resources.index') || Request::routeIs('resources.create')  ? 'true' : 'false' }}" aria-controls="collapseTwo">
+            <i class="fas fa-boxes"></i>
+            <span>{{ __('Resources') }}</span>
+        </a>
+        <div id="resources" class="collapse {{ Request::routeIs('resources.index') || Request::routeIs('resources.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">{{ __('Manage:') }}</h6>
+                <a  class="collapse-item {{ Request::routeIs('resources.index') ? 'active' : '' }}"
+                    href="{{ route('resources.index') }}"> {{ __('Resources List') }} </a>
+                <a class="collapse-item {{ Request::routeIs('resources.create') ? 'active' : '' }}"
+                     href="{{ route('resources.create') }}">{{ __('Create New Resource') }}</a>
+            </div>
+        </div>
+    </li>
+
    
 
     <!-- Divider -->

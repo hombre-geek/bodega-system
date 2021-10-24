@@ -1,18 +1,18 @@
-@if ($category->exists)
-    <form method="POST"  action="{{ route('categories.update', $category) }}" >
-        @method('PUT')
-@else
-    <form method="POST" action="{{ route('categories.store') }}" >
-@endif
 
-@csrf
+
+
 
 <div class="card w-75 mx-auto mt-5">
     <div class="card-body">
 
-      <form action="{{ route('categories.store') }}" method="POST">
-          @csrf
-
+        @if ($category->exists)
+            <form method="POST"  action="{{ route('categories.update', $category) }}" >
+                @method('PUT')
+        @else
+            <form method="POST" action="{{ route('categories.store') }}" >
+        @endif
+        
+        @csrf
          
             <div class="row">
 

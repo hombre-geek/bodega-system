@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryUpdateRequest extends FormRequest
+class ResourceStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|min:4|max:100|unique:categories,name,'.$this->category->id,
-            'description' => 'nullable|min:4|max:100',            
+            'category_id' => 'required',
+            'code'        => 'required|min:4|max:100|unique:resources,code',
+            'name'        => 'required|min:4|max:100',
+            'brand'       => 'required|min:4|max:100',
+            'serie'       => 'required|min:4|max:100',
         ];
     }
 }
