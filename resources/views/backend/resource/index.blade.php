@@ -28,6 +28,7 @@
                         <th>Marca</th>
                         <th>Serie</th>
                         <th>Categoría</th>
+                        <th>Estado</th>
                         <th>Fecha de Creación</th>
                         <th>Acciones</th>
                         
@@ -40,6 +41,7 @@
                         <th>Marca</th>
                         <th>Serie</th>
                         <th>Categoría</th>
+                        <th>Estado</th>
                         <th>Fecha de Creación</th>
                         <th>Acciones</th>
                     </tr>
@@ -55,6 +57,10 @@
                             <td>{{ $resource->brand }}</td>                            
                             <td>{{ $resource->serie }}</td> 
                             <td>{{ $category->name }}</td>
+                            <td>{!! $resource->status ? 
+                                        '<span class="badge badge-success">Disponible</span>' : 
+                                        '<span class="badge badge-danger">No Disponible</span>'  !!}
+                            </td>
                             <td>{{ $resource->created_at }}</td>                            
                             <td>                            
                                 <a href="{{ route('resources.edit', [$resource, $category]) }}" class="btn  text-success" data-toggle="tooltip" data-placement="top" title="{{ __('Edit') }}">
