@@ -11,16 +11,18 @@ class Category extends Model
     use HasFactory;
     protected $guarded = [];
 
+    // To date format for created_at field    
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y');
+    }
 
-    //  Relation Many to Many (Categories - Resources)
+    //  Relation Many to Many (Categories - Resources Tables)
     public function resources()
     {
         return $this->hasMany(Resource::class);
     }
 
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
+    
 
 }

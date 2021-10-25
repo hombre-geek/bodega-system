@@ -18,8 +18,19 @@ This application is the presentation of a technical test for the Information Sys
 - [SQLite] as database.(https://www.sqlite.org/index.html)
 - [Bootstrap 5.1.3](https://getbootstrap.com/) for the views.
 - HTML & CSS3.
+
+## 💽 To Run Bodega System the first time :
+
+From the terminal execute the following line: 
+1. ⌨️ php artisan migrate
+2. ⌨️ php artisan bodegaInstall:superadmin
+
+    With this last command the superuser will be created, whose info is:
+     - 👨🏻‍🦱 user@superuser.com
+     - 🔐 12345678
+
 ## 🙏🏻 Acknowledgment 
-I thank the company Deltec S.A. for the opportunity provided; I hope to be part of its valuable human resource, in order to provide effective solutions to your client portfolio
+I thank the company Deltec S.A. for the opportunity provided; I hope to be part of its valuable human resource, in order to provide effective solutions to your client portfoilo
 
 ## License
 

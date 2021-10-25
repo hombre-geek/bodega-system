@@ -20,11 +20,19 @@ class CreateResourcesTable extends Migration
                     ->constrained('categories')
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
+            
+            $table->foreignId('user_id')
+                    ->nullable()
+                    ->constrained('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');        
 
             $table->string('code')->unique();
             $table->string('name');
             $table->string('brand');
             $table->string('serie');
+            $table->mediumText('note')->nullable();
+            $table->timestamp('asigned_at')->nullable();
 
             $table->timestamps();
         });

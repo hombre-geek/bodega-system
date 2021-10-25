@@ -7,13 +7,14 @@
                 @method('PUT')
         @else
             <form method="POST" action="{{ route('resources.store') }}" >
+                
         @endif
             @csrf
             <div class="row mb-4">
                 <div class=" col-6">
                     <label for="category" class="form-label @error('category_id') text-danger @enderror requerido">Categoría:</label>
 
-                    <select class="form-select form-control" name="category_id" aria-label="Default select example" id="category">
+                    <select class="category-list form-select form-control" name="category_id" aria-label="Default select example" id="category">
                                         
                         @if(isset($resource->id))
                             @foreach ($categories as $category)
@@ -40,8 +41,7 @@
                                 @endforeach
 
                         @endif
-                    </select>                   
-
+                    </select> 
 
                     @error('category_id')
                         <span class="invalid-feedback" role="alert">
@@ -49,8 +49,47 @@
                         </span>
                     @enderror
 
+                </div>
+
+                <div class=" col-6">
+                    <label for="users"
+                        class="form-label @error('user_id') text-danger @enderror">
+                        Asigne un Usuario:
+                    </label>
+
+                    <select class="form-select form-control users-list" name="user_id"
+                        aria-label="Default select example" id="users">
+
+                        <option selected="true" disabled="disabled">Seleccione un Usuario</option>
+
+                        @foreach ($users as $user)
+
+                            @if (old('user_id') == $user->id)
+                                <option value="{{ old('user_id') }}" selected="true">
+                                    {{ $user->name }} {{ $user->last_name }}
+                                </option>                                      
+                            @else                                 
+                                <option value="{{ $user->id }}">{{ $user->name }} {{ $user->last_name }}</option>
+                            
+                            @endif
+
+                            
+
+                            {{-- @endif --}}
+
+                        @endforeach
+
+                        {{-- @endif --}}
+                    </select>
+
+                    @error('user_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     
                 </div>
+
             </div>
 
             <div class="row">

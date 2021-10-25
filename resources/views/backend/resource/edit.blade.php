@@ -1,4 +1,7 @@
 @extends('theme.layouts.backend')
+@push('css')
+    <link href="{{ asset('backend/css/select2/select2.min.css') }}" rel="stylesheet">
+@endpush
 @section('titlePage', 'Editar Recurso')
 @section('sectionTitle', 'Modificar Recurso')
 @section('btnHeading')
@@ -10,5 +13,20 @@
 @endsection
 
 @section('content')
-    @include('backend.resource.form', [$resource, $categories])
+    @include('backend.resource.form', [$resource, $categories, $users])
 @endsection
+
+@push('js')
+
+    <script src="{{ asset('backend/js/select2/select2.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.users-list').select2();
+            
+            $('.category-list').select2();
+
+        });
+    </script>
+
+@endpush

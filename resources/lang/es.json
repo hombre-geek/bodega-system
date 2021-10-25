@@ -159,5 +159,11 @@
     "Create New Category":"Crear Nueva Categoría",
     "Resources":"Recursos",
     "Resources List":"Listado de Recursos",
-    "Create New Resource":"Crear Nuevo Recurso"
+    "Create New Resource":"Crear Nuevo Recurso",
+    "Operations": "Operaciones",
+    "Asign Resource":"Asignar Recurso",
+    "Assignments":"Asignaciones",
+    "Assignments List":"Listado de Asignaciones",
+    "Create New Assignments":"Crear Nueva Asignación"
+
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Support\Carbon;
+use App\Models\Backend\Resource;
+use App\Models\Backend\Assigment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -39,13 +41,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',        
     ];
 
+    // Encrypt password field
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
 
+    // To date format for created_at field
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
+    }
+
+   
+    //  Relation Many to Many (User - Resources Tables)
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
     }
 }

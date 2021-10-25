@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Backend\Category;
 use App\Models\Backend\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\ResourceStoreRequest;
 use App\Http\Requests\Backend\ResourceUpdateRequest;
-use App\Models\Backend\Category;
 
 class ResourceController extends Controller
 {
     public function index()
     {
-       
-
         $CategoryResources = Category::with('resources')->orderBy('created_at')->get();
 
         return view('backend.resource.index', compact('CategoryResources'));
@@ -24,10 +23,11 @@ class ResourceController extends Controller
    
     public function create()
     {
+        $users = User::where('id','!=',1)->orderBy('created_at', 'DESC')->get();
         $categories = Category::all()->sortByDesc('name');
         $resource = new Resource();
        
-        return view('backend.resource.create', compact('resource', 'categories'));
+        return view( 'backend.resource.create', compact( 'resource', 'categories', 'users' ) );
         
     }
 
@@ -48,8 +48,10 @@ class ResourceController extends Controller
         
 
         $categories = Category::all()->sortByDesc('name');
+        $users = User::where('id','!=',1)->orderBy('created_at', 'DESC')->get();
+
         
-        return view('backend.resource.edit', compact( 'resource','categories', 'category' ) );
+        return view('backend.resource.edit', compact( 'resource','category','categories', 'users' ) );
     }
 
    

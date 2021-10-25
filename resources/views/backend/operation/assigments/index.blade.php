@@ -3,12 +3,12 @@
 {{-- <link href="http://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
 <link href="{{ asset('backend/css/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
 @endpush
-@section('titlePage','Listado de Recursos')
-@section('sectionTitle','Listado de Recursos')
+@section('titlePage','Recursos Asignados')
+@section('sectionTitle','Listado de Recursos Asignados')
 @section('btnHeading')
-    <a href="{{ route('resources.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+    <a href="{{ route('assigments.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
          <i class="fas fa-boxes fa-sm text-white-50"></i>
-         <span class="ml-1">Nuevo Recurso</span>        
+         <span class="ml-1">Nueva Asignación</span>        
     </a>        
 @endsection
 
@@ -23,47 +23,33 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Code</th>
-                        <th>Nombre</th>
-                        <th>Marca</th>
-                        <th>Serie</th>
-                        <th>Categoría</th>
-                        <th>Disponible</th>
-                        <th>Fecha de Creación</th>
+                        <th>Usuario</th>
+                        <th>Recurso</th>
+                        <th>Fecha de Asignación</th>
                         <th>Acciones</th>
                         
                     </tr>
                 </thead>
                 <tfoot>
-                    <tr>
-                        <th>Code</th>
-                        <th>Nombre</th>
-                        <th>Marca</th>
-                        <th>Serie</th>
-                        <th>Categoría</th>
-                        <th>Disponible</th>
-                        <th>Fecha de Creación</th>
+                    <tr>                        
+                        <th>Usuario</th>
+                        <th>Recurso</th>
+                        <th>Fecha de Asignación</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     
-                    @foreach ( $CategoryResources as $category )
+                    @foreach ( $userResources as $user )
 
-                      @foreach ( $category->resources as $resource )
+                      @foreach ( $user->resources as $resource )
                         <tr>                            
-                            <td>{{ $resource->code }}</td>
-                            <td>{{ $resource->name }}</td>
-                            <td>{{ $resource->brand }}</td>                            
-                            <td>{{ $resource->serie }}</td> 
-                            <td>{{ $category->name }}</td>
-                            <td>{!! $resource->user_id == NULL   ? 
-                                        '<span class="badge badge-success">SI</span>' : 
-                                        '<span class="badge badge-danger">NO</span>'  !!}
-                            </td>
-                            <td>{{ $resource->created_at }}</td>                            
+                            
+                            <td>{{ $user->name }} {{ $user->last_name }}</td>
+                            <td>{{ $resource->name}}</td>    
+                            <td>{{ $resource->asigned_at }}</td>                            
                             <td>                            
-                                <a href="{{ route('resources.edit', [$resource, $category]) }}" class="btn  text-success" data-toggle="tooltip" data-placement="top" title="{{ __('Edit') }}">
+                                <a href="{{ route('resources.edit', [$resource, $user]) }}" class="btn  text-success" data-toggle="tooltip" data-placement="top" title="{{ __('Edit') }}">
                                     <i class="fas fa-edit"></i>
                                 </a>                            
                                 <form action="{{ route('resources.destroy', $resource)}}" method="post" style="display:inline;">

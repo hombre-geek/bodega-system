@@ -81,7 +81,26 @@
         </div>
     </li>
 
-   
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" 
+                href="#" data-toggle="collapse" data-target="#assignments"
+            aria-expanded="false" aria-controls="collapseTwo">
+            <i class="fas fa-check-double"></i>
+            <span>{{ __('Assignments') }}</span>
+        </a>
+        <div id="assignments" class="collapse {{ Request::routeIs('assigments.index') || Request::routeIs('assigments.create')  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">{{ __('Manage:') }}</h6>
+                <a  class="collapse-item {{ Request::routeIs('assigments.index') ? 'active' : '' }}"
+                    href="{{ route('assigments.index') }}"> {{ __('Assignments List') }} </a>
+                <a class="collapse-item {{ Request::routeIs('assigments.create') ? 'active' : '' }}" href="{{ route('assigments.create') }}">{{ __('Create New Assignments') }}</a>
+            </div>
+        </div>
+    </li>
+
+
+  
 
     <!-- Divider -->
     <hr class="sidebar-divider">
