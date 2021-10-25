@@ -19,6 +19,9 @@ This application is the presentation of a technical test for the Information Sys
 - [Bootstrap 5.1.3](https://getbootstrap.com/) for the views.
 - HTML & CSS3.
 
+## 🗃️ Database Scheme Employed
+![img.png](img.png)
+
 ## 💽 To Run Bodega System the first time :
 
 From the terminal execute the following line: 
